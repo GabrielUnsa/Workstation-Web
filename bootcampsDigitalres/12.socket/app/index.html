@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sockets</title>
+</head>
+<body>
+
+	<input type="text" id="test-socket-input">
+	<button id='add-to-list'>Agregar a la lista</button>
+
+	<script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
+	<script>
+		const socket = io('http://localhost:5000')
+
+		document.getElementById('add-to-list').addEventListener('click', (e) => {
+			e.preventDefault()
+
+			const input = document.getElementById('test-socket-input')
+
+			socket.emit('msg:input', input.value)
+			input.value=''
+		})
+
+
+		socket.on('msg:response', (msg) => {
+			const listItem = document.createElement('p')
+			listItem.innerText = msg
+			document.querySelector('body').appendChild(listItem)
+		})
+	</script>
+	
+</body>
+</html>
