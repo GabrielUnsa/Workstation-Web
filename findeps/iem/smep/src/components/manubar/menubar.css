@@ -1,0 +1,10 @@
+.navBar{
+  background-color: #c1eae2;
+  color: black;
+}
+
+.navBar .dropdownHide::before,
+.navBar .dropdownHide::after{
+  display:none; 
+}
+

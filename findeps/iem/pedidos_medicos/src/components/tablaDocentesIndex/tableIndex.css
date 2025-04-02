@@ -1,0 +1,12 @@
+.td-center {
+  text-align: center;
+}
+.td-end{
+  text-align: end;
+}
+td,th{
+  vertical-align: middle;
+}
+th{
+  text-align: center;
+}

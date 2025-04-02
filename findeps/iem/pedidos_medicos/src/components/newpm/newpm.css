@@ -1,0 +1,12 @@
+.p{
+  width: 150px;
+  text-align: center;
+  justify-content: center;
+}
+
+.np{
+  background-color: lightblue;
+  width: 70rem;
+  font-size: 19px;
+}
+
