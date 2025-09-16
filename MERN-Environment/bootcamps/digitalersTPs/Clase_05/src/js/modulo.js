@@ -1,0 +1,1 @@
+console.log("Estoy en el modulo.js", globalConst);

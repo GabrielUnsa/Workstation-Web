@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> Clase 1 - CSS Avanzado </title>
+    <link rel="stylesheet" href="./style/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    </style>
+  </head>
+  <body>
+    <header>
+      
+    </header>
+    <nav>
+
+    </nav>
+    <main role="main">
+      <h1>Multimedia</h1>
+      <h2>Embed</h2>
+      <embed src="multimedia/diario">
+      <!--object data="multimedia/diario"></object-->
+      <h2>Video 1</h2>
+      <video id="blues">
+        <source src="./multimedia/bb" type="video/mp4" media="">
+      </video>
+      <br>
+      <button id="b_play"> Play </button>
+      <button id="b_pausa"> Pausa </button>
+      <script charset="utf-8">
+        var mivideo=document.getElementById('blues')
+        document.getElementById('b_play').onclick=reproduccion;
+        document.getElementById('b_pausa').onclick=parar;
+        function reproduccion(){
+          mivideo.play();
+        }
+        function parar(){
+          mivideo.pause();
+        }
+      </script>
+
+    <h2>Video 2</h2>
+    <video id="phil">
+      <source src="./multimedia/aire" type="video/mp4" media="">
+    </video>  
+    <br></br>
+    <img id="play" src="img/play" alt="play" width="64" height="64" style="cursor: pointer;"/>
+    <img id="pause" src="img/pause" alt="pause" width="64" height="64" style="cursor: pointer;"/>
+    <script charset="utf-8">
+      var collins=document.getElementById('phil')
+      document.getElementById('play').onclick=reproduccion;
+      document.getElementById('pause').onclick=parar;
+      function reproduccion(){
+        collins.play();
+      }
+      function parar(){
+        collins.pause();
+      }
+    </script>
+    <br>
+    <video id="parke" poster="img/fe" controls muted>
+      <source src="./multimedia/parke" type="video/mp4">
+    </video>
+
+    <h2> Formatos de Video (ogv/mp4)</h2>
+    <video controls> 
+      <!-- OVG o OGG; muted, loop , autoplay; Ofrmato lindo para chorme Firefox y Opera -->
+      <source src="multimedia/pomplamosee" type="video/ogg">
+      <!-- Internet Explorer -->
+      <source src="multimedia/pomplamosee" type="video/mp4">
+    </video>
+    </main>
+    <footer>
+    
+    </footer>
+  </body>
+</html>

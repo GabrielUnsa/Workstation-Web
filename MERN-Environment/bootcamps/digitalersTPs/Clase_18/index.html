@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clase 17-18</title>
+</head>
+<body>
+    <div id="app">
+        <h2>Crea tu hamburguesa</h2>
+        <div>
+            <select name="ingredients" id="ingredients">
+                <option value="Meat"> Carnecita </option>
+                <option value="Cheese"> Quesito </option>
+                <option value="Bread"> Pan </option>
+                <option value="Tomatto"> Tomate </option>
+                <option value="Lettuce"> Lechuga </option>
+            </select>
+            <button id="add-ingredient-btn"> Agregar Ingrediente </button>
+        </div>
+        <div>
+            <button id="finish-order-btn"> Finalizar Orden </button>
+        </div>
+        <div>
+            <h2>Pedido</h2>
+            <ul id="order-list"></ul>
+        </div>
+    </div>
+
+    <script src="./module.js"></script>
+    <script src="./builder.js"></script>
+    <script src="./factory.js"></script>
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./src/app.js"></script>
+</body>
+</html>

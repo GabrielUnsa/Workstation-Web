@@ -1,0 +1,25 @@
+{
+  "name": "products",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node_modules/.bin/nodemon"
+  },
+  "author": "@gabriel",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^10.0.0",
+    "dotenv-flow": "^4.1.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.18.0",
+    "socket.io": "^4.8.1"
+  }
+}

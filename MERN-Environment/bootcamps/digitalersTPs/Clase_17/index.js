@@ -1,0 +1,120 @@
+// Crear una funcion constructora maestra Person(name)
+// Crear una function constructora hija de Person => Student(course)
+// Crear una funcion constructora hija de Person => Teacher(studentQuantity)
+// Crear el prototipo y con el prototipo llenan los campos del html
+
+/**
+ * Mejoras propuestas para el lunes
+ * 1. Agregar un metodo a Person que permita agregar una nueva persona 
+ * en el html cada que se cree mediante un new
+ * 2. Agregar un metodo a person que se pueda heredar y agregar el nombre
+ * a la persona que se agregó en el punto 1
+ * 3. Agregar un metodo a Student que permita agregar el curso
+ * al estudiante que se creo mediante el punto 1
+ * 4. Agregar un metodo a Teacher que permita agregar la cantidad de estudiantes
+ * al profesor que se creo mediante el punto 1
+ * 5. Definir un listado de estudiantes y uno de profesores
+ * 6. Recorrer los listados y utilizando los metodos creados y las diferentes funciones
+ * constructoras agregarlos y mostrarlos en pantalla
+ * 
+ * !!!!! Para realizar lo propuesto se deberan agregar algunas propiedades a los objetos
+ * Person, Student y Teacher, agreguen tantas como consideren necesarias !!!!
+ * !!!! La idea de este ejercicio que generen el html de forma dinamica cuando agreguen 
+ * una nueva persona (estudiante o profesor) !!!! 
+*/
+
+// ---------------- Vanilla JS -------------------- //
+
+/* function Person(name) {
+	this.name = name;
+}
+
+function Student(name, course) {
+	Person.call(this, name)
+	this.course = course;
+}
+
+Student.prototype = Object.create(Person.prototype)
+Student.prototype.constructor = Student
+
+function Teacher(name, studentQuantity) {
+	Person.call(this, name)
+	this.studentQuantity = studentQuantity;
+}
+
+Teacher.prototype = Object.create(Person.prototype)
+Teacher.prototype.constructor = Teacher
+
+const student = new Student('Ayelen', 'Js Avanzado')
+const teacher = new Teacher('Diego', 40)
+
+document.getElementById('student-name').innerHTML = student.name
+document.getElementById('student-course').innerHTML = student.course
+
+document.getElementById('teacher-name').innerHTML = teacher.name
+document.getElementById('teacher-student-quantity').innerHTML = teacher.studentQuantity */
+
+// --------------- ES6 ----------------- // 
+
+class Person {
+	//Cuando un geter tiene un static antecedido evita que cambien las propiedades
+	static get age() {
+		return 30;
+	}
+
+	constructor(name) {
+		this._name = this._capitalize(name);
+	}
+
+	get name() {
+		console.log("PERSON:");
+		console.log(Person.age);
+		console.log(Person.name);
+		console.log("AHORA CON THIS.CONSTRUCTOR")
+		console.log(this.constructor.name);
+		console.log(this.constructor.age);	
+		/* Cuando realizo this.constructor se esta ejecutando en las clases extendidas con Person, cuando se ejecuta el constructor de las clases
+			* entonces se ejecuta a este this.constructor pues estoy apuntando a las clases donde lo invoco, es decir, 
+			* apunta al objeto cual yo construi el prototipo, por eso nos da Student y Teacher y no Person como ocurre al principio*/
+		return this._name;
+	}
+
+	set name(name) {
+		this._name = this._capitalize(name);
+	}
+
+	_capitalize(name) {
+		return `${name.charAt(0).toUpperCase()}${name.slice(1).toLowerCase()}`;
+	}
+
+	getName() {
+		return this._name;
+	}
+
+	setName(name) {
+		this._name = name;
+	}
+}
+
+class Student extends Person {
+	constructor(name, course) {
+		super(name);
+		this.course = course;
+	}
+}
+
+class Teacher extends Person {
+	constructor(name, studentQuantity) {
+		super(name);
+		this.studentQuantity = studentQuantity;
+	}
+}
+
+const student = new Student('ayELen', 'Js Avanzado')
+const teacher = new Teacher('dIeGo', 40)
+
+document.getElementById('student-name').innerHTML = student.name
+document.getElementById('student-course').innerHTML = student.course
+
+document.getElementById('teacher-name').innerHTML = teacher.name
+document.getElementById('teacher-student-quantity').innerHTML = teacher.studentQuantity

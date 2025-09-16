@@ -1,0 +1,8 @@
+El problema:
+Las SPA usan una navegación SIMULADA
+
+La solución:
+Del lado del cliente  => API History / API Hash 
+Del lado del servidor => Ruta Fallback (Redirigir todas las peticiones que no sean estáticas al index.php)
+
+Implementación:

@@ -1,0 +1,50 @@
+*, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    font-size: 16px;
+}
+
+/*Podemos declarar variables en ambitos globales*/
+:root {
+  --color-primario: black;    /* Variable de color */
+  --espaciado: 20px;            /* Variable numérica */
+  --fuente-titulo: "Verdana";     /* Variable de fuente */
+}
+
+/*Aplico aqui las variables*/
+body {
+  color: var(--color-primario);
+  margin: var(--espaciado);
+  font-family: var(--fuente-titulo);
+  background: var(--color-fondo, #7de493); /* Usa 7de493 si --color-fondo no existe */
+}
+
+/* Pero tambien podemos declararla en ambitos locales*/
+.boton {
+  --boton-color: blue; /* Variable local */
+  background: var(--boton-color);
+}
+
+.boton-alerta {
+  --boton-color: red; /* Sobrescribe la variable local */
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 1rem; /*Apunto a lo que declare en html, body. Hace referencia allí es una medida relativa. Si declaro el tamaño aqui entonces no se ejecuta lo declarado en html, body*/
+}
+
+/*
+Ejemplo de caja
+ #app{
+    width: 300px;
+    height: 500px;
+    padding: 50px;
+    margin: 50px;
+    background-color: blue;
+} */

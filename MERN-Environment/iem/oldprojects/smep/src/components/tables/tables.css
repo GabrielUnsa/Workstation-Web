@@ -1,0 +1,10 @@
+.warningBtn:hover{
+  background-color: #FFA900;
+  color: black;
+}
+
+.dangerBtn:hover{
+  background-color: #F93154;
+  color: black;
+}
+

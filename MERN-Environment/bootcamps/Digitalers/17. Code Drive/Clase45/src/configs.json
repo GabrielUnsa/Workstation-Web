@@ -1,0 +1,8 @@
+{
+    "dataSource": {
+        "mode": "production",
+        "apiDataSource": {
+            "endpoint": "https://jsonplaceholder.typicode.com"
+        }
+    }
+}

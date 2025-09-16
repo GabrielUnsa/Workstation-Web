@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<form action="" method="" accept-charset="utf-8">
+		<input type="text" name="usuario">
+		<input type="password" name="clave">
+		<button>enviar</button>
+	</form>
+
+	<script charset="utf-8">
+		//FormData
+		let form = document.querySelector("form");
+		let valores;
+
+		form.addEventListener( "submit", e => {
+			e.preventDefault();
+			let data = new FormData(form);
+			valores = data.values();
+			console.log(valores);
+		});
+
+	</script>
+
+</body>
+</html>

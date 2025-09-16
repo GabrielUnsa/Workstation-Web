@@ -1,0 +1,9 @@
+.sizeImg{
+  height: 200px;
+  transition: 0.5s all ease-in-out;
+}
+
+.sizeImg:hover{
+  transform: scale(1.04);
+  cursor: pointer;
+}

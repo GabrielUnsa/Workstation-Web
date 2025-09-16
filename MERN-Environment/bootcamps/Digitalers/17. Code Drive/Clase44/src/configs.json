@@ -1,0 +1,4 @@
+{
+    "dataSource": "mock",
+    "apiEndpoint": "https://jsonplaceholder.typicode.com"
+}

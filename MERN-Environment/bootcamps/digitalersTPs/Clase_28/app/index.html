@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge">
+    <meta name="viewport" content="width=device-width" />
+    <title>Sockets</title>
+  </head>
+  <body>
+    <input type="text" id="socketEmit"> 
+    <button id="add-to-list">Agregar a la lista</button>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+    <script charset="utf-8">
+      const socket = io('http://localhost:5000');
+      //socket.emit('msg:input', 'hola');
+      // document.getElementById('socketEmit').addEventListener('blur', (e) => {
+      //   e.preventDefault();
+      //   socket.emit('msg:input', e.target.value);
+      //   e.target.value=''; 
+      // });
+      document.getElementById('add-to-list').addEventListener('click', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('socketEmit');
+        socket.emit('msg:input', input.value);
+        input.value='';
+      });
+
+      socket.on('msg:response', (msg) => {
+        const listItem = document.createElement('p');
+        listItem.innerText = msg;
+        document.querySelector('body').appendChild(listItem);
+        //console.log(msg);
+      });
+    </script>
+  </body>
+</html>

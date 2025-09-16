@@ -1,0 +1,14 @@
+version : "2.39.1"
+
+services:
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - 6379:6379
+
+  mongodb:
+    image:mongo
+    container_name: mongodb
+    ports:
+      - 30001:27017

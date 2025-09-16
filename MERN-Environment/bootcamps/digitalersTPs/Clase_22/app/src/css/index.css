@@ -1,0 +1,97 @@
+*, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    font-size: 16px;
+}
+
+/*Podemos declarar variables en ambitos globales*/
+:root {
+  --color-primario: black;    /* Variable de color */
+  --espaciado: 20px;            /* Variable numérica */
+  --fuente-titulo: "Verdana";     /* Variable de fuente */
+  --primary: #303f9f
+  --secundary: #ce93d8
+}
+
+/*Aplico aqui las variables*/
+body {
+  color: var(--color-primario);
+  margin: var(--espaciado);
+  font-family: var(--fuente-titulo);
+  background: var(--color-fondo, #7de493); /* Usa 7de493 si --color-fondo no existe */
+}
+
+/* Pero tambien podemos declararla en ambitos locales*/
+.boton {
+  --boton-color: blue; /* Variable local */
+  background: var(--boton-color);
+}
+
+.boton-alerta {
+  --boton-color: red; /* Sobrescribe la variable local */
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 1rem; /*Apunto a lo que declare en html, body. Hace referencia allí es una medida relativa. Si declaro el tamaño aqui entonces no se ejecuta lo declarado en html, body*/
+}
+
+#app {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.box{
+  width: 100%;
+  height: calc(100vh / 3 - 20px);
+  margin: 10px 0;
+ }
+
+ .box:nth-child(3){
+   margin-bottom : 0;
+ }
+
+.box.primary{
+ background-color: var(--primary);
+}
+
+.box.secundary{
+ background-color: var(--primary);
+}
+
+/*media query que aplique a screen y tamaño de pantalla horizontal min 400px*/
+@media screen and ( max-width: 1024px ){
+  #app {
+    flex-flow: row nowrap;
+  }
+
+  .box{
+    height: 100vh;
+    margin-bottom: 0;
+    margin-right: 10px;
+ }
+}
+
+/*Esta media heredo felx-flow de la media de arriba y toda propiedades no declaradas nuevamente*/
+@media screen and ( max-width: 1366px ){
+  .box{
+    flex-basis: 400px; /*tamaño inicial del flex principal*/
+    height: 50vh;
+  }
+}
+
+
+/*
+Ejemplo de caja
+ #app{
+    width: 300px;
+    height: 500px;
+    padding: 50px;
+    margin: 50px;
+    background-color: blue;
+} */

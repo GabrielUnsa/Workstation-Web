@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="Products-Sockets" content="content">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge">
+    <meta name="viewport" content="width=device-width" />
+    <title>Products - Sockets</title>
+  </head>
+  <body>
+    <h1>Products</h1>
+    <ul id="products"></ul>
+
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+    <script>
+      const socket = io('http://localhost:5000');
+      const addProduct = (product) => {
+        const productLi = document.createElement('li');
+        const productUl = document.createElement('ul');
+        Object.entries(product).forEach(([prop, value]) => {
+          const propLi = document.createElement('li');
+          propLi.innerText = `${prop}: ${value}`;
+          productUl.appendChild(propLi);
+        });
+        productLi.appendChild(productUl);
+        document.querySelector('#products').appendChild(productLi);
+      };
+    
+      fetch('http://localhost:4000/api/product')
+        .then( res => {
+          return res.json();
+        })
+        .then( products => {
+          products.forEach( (product) => { 
+            addProduct(product);
+          });
+        });
+        socket.on( 'product: created', (product) => {
+          addProduct(product);
+        });
+    </script>
+  </body>
+</html>

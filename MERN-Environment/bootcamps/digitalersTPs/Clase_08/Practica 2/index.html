@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clase 8 - Practica 2 </title>
+    <link rel="stylesheet" href="./css//index.css">
+</head>
+<body>
+    <form action="/mi-peticion" 
+          method="post"
+          onsubmit="function test(e){ console.log(e); e.preventDefault();}">
+        <label for="email">email</label>
+        <input type="email" name="" id="" required>
+        <label for="password">contraseña</label>
+        <input type="password" name="" id="" required>
+        <input type="submit" value="enviar">
+    </form>
+    <script src="./src/js/index.js"></script>
+</body>
+</html>

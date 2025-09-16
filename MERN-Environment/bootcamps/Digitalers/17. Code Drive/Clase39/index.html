@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Contador</h1>
+
+		<div id="texto">1</div>
+		<!--Lectura de Numero-->
+
+		<button id="boton">Incrementar</button>
+		<!--Escritura de Numero-->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"></script>
+		<script>
+			// Version SIN redux
+			/*
+    document.getElementById('boton').onclick = function() {
+      const prevValue = Number(document.getElementById('texto').innerHTML); // "1" => 1
+      document.getElementById('texto').innerHTML = prevValue + 1;
+    }
+    */
+		</script>
+		<script>
+			// Version CON redux
+
+			/**
+			 * Datos Reactivos:
+			 * numero (number)
+			 **/
+			// Store: Contenedor para centralizar los datos de una interfaz
+
+			// State: Los datos ACTUALES del Store
+
+			// Reducer: Función que gestiona el cambio de State.
+			// Se dispara...
+			// 1) Cuando se crea el Store, y el valor retornado pasa a ser el primer valor del State.
+			// 2) Luego, se vuelve a ejecutar cada vez de que se solicita un cambio del State mediante dispatch.
+			const store = Redux.createStore(function () {
+				// Qué pasa cuando alguien escribe un dato en este Store
+				console.log("Ejecutando una escritura del estado");
+				return {
+					numero: 1,
+				};
+			});
+
+			// State = { numero: 1 }
+
+			document.getElementById("texto").innerHTML =
+				store.getState().numero;
+
+			document.getElementById("boton").onclick = function () {
+				store.dispatch({
+					// Escritura de datos
+					type: "Hola",
+				});
+			};
+		</script>
+	</body>
+</html>

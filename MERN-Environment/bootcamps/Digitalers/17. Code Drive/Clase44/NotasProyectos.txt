@@ -1,0 +1,24 @@
+Medimos el tamaño del proyecto React en base a la PROFUNDIDAD del árbol de componentes
+
+Redux/Context => GRANDE
+App
+    componente
+        componente
+            componente
+                componente
+            componente
+
+Sin Redux/Context => CHICO
+App
+    componente
+    componente
+    componente
+    componente
+    componente
+    componente
+    componente
+    componente
+    componente
+    componente
+    componente
+    componente
