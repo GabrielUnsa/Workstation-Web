@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title> Modelo Probabilistico Multiprogramado </title>
+</head>
+<body>
+    <div class="container-sm center">
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Nombre de Proceso</span>
+            <input id="process-name" type="text" class="form-control" placeholder="Process Name" aria-label="Process Name" aria-describedby="addon-wrapping">
+        </div>
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Probabilidad I/O</span>
+            <input id="probIOInput" type="number" class="form-control" placeholder="Probabilidad I/O" aria-label="Probabilidad I/O" aria-describedby="addon-wrapping">
+        </div>
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Duracion</span>
+            <input id="duracionInput" type="number" class="form-control" placeholder="Duracion" aria-label="Duracion" aria-describedby="addon-wrapping">
+        </div>
+        <div class="flex-nowrap input-group mb-3">
+            <span class="input-group-text">Hora de Llegada</span>
+            <input id="minInput" type="number" class="form-control" placeholder="Hora" aria-label="Hora">
+            <span class="input-group-text">:</span>
+            <input id="segInput" type="number" class="form-control" placeholder="Minuto" aria-label="Minuto">
+        </div>
+
+        <div class="d-grid gap-5 d-md-flex justify-content-md-center">
+            <button type="button" class="btn btn-success" id="cargarProceso">Cargar</button>
+            <button type="button" class="btn btn-info" id="viewProcessInput">Ver Procesos </button>
+            <button type="button" class="btn btn-warning" id="solved"> Solucionar </button>
+        </div>
+        <br>
+        <div id="table-process-load"></div>
+        <div id="table-solved"></div>
+    </div>
+    <script src="../dist/ts/index.js"  type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

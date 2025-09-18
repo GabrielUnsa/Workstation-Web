@@ -3,7 +3,18 @@ import { EstadoDocente } from '../../types/docente.types';
 
 describe('Modelo Docente', () => {
   describe('Validaciones', () => {
-    const docenteValido = {
+    const docenteValido: {
+      nombre?: string,
+      apellido?: string,
+      telefono?: string,
+      email?: string,
+      numeroEmergencia?: string,
+      numeroLegajo?: string,
+      dni?: string,
+      materiaACargo?: string,
+      estado?: string
+    } 
+    = {
       nombre: 'Juan',
       apellido: 'Pérez',
       telefono: '+54 9 387 123-4567',
